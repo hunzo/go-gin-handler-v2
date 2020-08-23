@@ -23,15 +23,19 @@ func (h *RequestHandlers) GetAll(c *gin.Context) {
 
 func (h *RequestHandlers) PostALL(c *gin.Context) {
 	u := models.LoginUser{}
+	h.Initial()
 
 	if e := c.ShouldBindJSON(&u); e != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"status": "erros",
-			"info":   e.Error(),
+			"u status": u,
+			"status":   "errors",
+			"info":     e.Error(),
 		})
+		return
 	}
 
 	c.JSON(http.StatusOK, gin.H{
 		"status": "success",
+		"info":   u,
 	})
 }
