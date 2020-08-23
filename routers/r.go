@@ -7,6 +7,7 @@ import (
 
 func Routers() *gin.Engine {
 	h := controllers.RequestHandlers{}
+	h.Initial()
 
 	r := gin.Default()
 	r.GET("/", h.GetAll)

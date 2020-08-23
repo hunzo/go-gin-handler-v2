@@ -11,12 +11,11 @@ import (
 
 type RequestHandlers struct{}
 
-func (h *RequestHandlers) initial() {
+func (h *RequestHandlers) Initial() {
 	fmt.Println("Initial Functions")
 }
 
 func (h *RequestHandlers) GetAll(c *gin.Context) {
-	h.initial()
 	c.JSON(http.StatusOK, gin.H{
 		"info": "GetALL",
 	})
